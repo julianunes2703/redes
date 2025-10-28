@@ -1,0 +1,30 @@
+# Ignorar arquivos compilados
+*.o
+*.exe
+*.out
+*.a
+*.so
+*.dll
+
+# Ignorar diretórios de build
+build/
+bin/
+
+# Ignorar arquivos temporários do sistema operacional
+.DS_Store        # macOS
+Thumbs.db        # Windows
+
+# Ignorar arquivos de configuração do editor (VSCode, Sublime, etc)
+.vscode/
+.idea/
+
+# Ignorar arquivos de compilação do Makefile
+Makefile.old
+Makefile.bak
+
+# Ignorar logs
+*.log
+
+# Ignorar arquivos de backup
+*~
+*.bak
