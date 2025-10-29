@@ -14,7 +14,7 @@ void send_response(SOCKET client_socket, const char *header, const char *body) {
     send(client_socket, response, strlen(response), 0);
 }
 
-// Função para listar arquivos de um diretório no Windows
+// Função para listar arquivos do diretório 
 void list_directory(SOCKET client_socket, const char *path) {
     WIN32_FIND_DATA findFileData;
     HANDLE hFind = INVALID_HANDLE_VALUE;
