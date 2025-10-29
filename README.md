@@ -27,14 +27,6 @@ Se o diretório contiver um arquivo index.html, ele é servido automaticamente.
 
 Caso o diretório contenha outros arquivos, o servidor retorna uma lista de arquivos contidos no diretório.
 
-Tecnologias Utilizadas
-
-C: Linguagem de programação utilizada para implementar o cliente e servidor HTTP.
-
-libcurl: Biblioteca para a implementação do cliente HTTP.
-
-Winsock (Windows): API para a comunicação via sockets no Windows.
-
 Como Compilar e Executar
 Requisitos
 
@@ -92,9 +84,6 @@ Estrutura do Projeto
 ├── Makefile           # Arquivo de automação de compilação (opcional)
 └── imagem_paisagem.jpg # Exemplo de arquivo baixado
 
-Licença
-
-Este projeto está licenciado sob a Licença MIT. Consulte o arquivo LICENSE para mais detalhes.
 
 Como adicionar o Makefile (se você usar):
 Exemplo de Makefile:
