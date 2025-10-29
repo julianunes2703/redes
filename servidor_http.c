@@ -20,6 +20,19 @@ void list_directory(SOCKET client_socket, const char *path) {
     HANDLE hFind = INVALID_HANDLE_VALUE;
     char fullPath[MAX_BUFFER_SIZE];
     snprintf(fullPath, MAX_BUFFER_SIZE, "%s\\*", path);  
+    
+    //verifica se tem index
+    if (GetFileAttributes("index.html") != INVALID_FILE_ATTRIBUTES) {
+    FILE *fp = fopen("index.html", "rb");
+    if (fp) {
+        char body[MAX_BUFFER_SIZE];
+        fread(body, 1, sizeof(body)-1, fp);
+        fclose(fp);
+        send_response(client_socket, "HTTP/1.1 200 OK", body);
+        return;
+    }
+}
+
 
     // Abrir o diretório
     hFind = FindFirstFile(fullPath, &findFileData);
@@ -32,7 +45,7 @@ void list_directory(SOCKET client_socket, const char *path) {
     strcpy(body, "<html><body><h1>Conteudo do Diretorio:</h1><ul>");
 
     do {
-        // Verificar se é um arquivo regular (não é '.' ou '..')
+        // Verificar se é um arquivo regular
         if (!(findFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) {
             strcat(body, "<li>");
             strcat(body, findFileData.cFileName);  // Nome do arquivo

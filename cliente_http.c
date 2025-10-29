@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+//biblioteca da requisição
 #include <curl/curl.h>
 
 size_t write_file(void *ptr, size_t size, size_t nmemb, FILE *stream) {
@@ -23,10 +24,15 @@ int main() {
             return 1;
         }
 
+        //define a URL
         curl_easy_setopt(curl, CURLOPT_URL, url);
+        //chama a função  write_file quando chega os dados
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_file);
+        //repassa ao callback
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
+        //segue redirecionamento HTTP
         curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L); 
+        //limita a operação em 30s
         curl_easy_setopt(curl, CURLOPT_TIMEOUT, 30L);     
 
         res = curl_easy_perform(curl);
