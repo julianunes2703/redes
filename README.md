@@ -77,14 +77,6 @@ http://localhost:8080
 
 O servidor irá listar os arquivos do diretório onde está sendo executado.
 
-Estrutura do Projeto
-/Redes
-├── cliente_http.c     # Código do Cliente HTTP
-├── servidor_http.c    # Código do Servidor HTTP
-├── Makefile           # Arquivo de automação de compilação (opcional)
-└── imagem_paisagem.jpg # Exemplo de arquivo baixado
-
-
 Como adicionar o Makefile (se você usar):
 Exemplo de Makefile:
 CC = gcc
